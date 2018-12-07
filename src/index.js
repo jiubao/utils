@@ -1,3 +1,8 @@
+import supportPassive from '@jiubao/passive'
+
+var passive = supportPassive()
+var defaultEventOptions = passive ? {capture: false, passive: true} : false
+
 export const on = (element, evt, handler, options = defaultEventOptions) => {
   element.addEventListener(evt, handler, options)
   return () => off(element, evt, handler, options)

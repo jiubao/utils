@@ -1,3 +1,8 @@
+import supportPassive from '@jiubao/passive';
+
+var passive = supportPassive();
+var defaultEventOptions = passive ? {capture: false, passive: true} : false;
+
 var on = function (element, evt, handler, options) {
   if ( options === void 0 ) options = defaultEventOptions;
 

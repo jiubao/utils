@@ -1,8 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.raf = {})));
-}(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@jiubao/passive')) :
+  typeof define === 'function' && define.amd ? define(['exports', '@jiubao/passive'], factory) :
+  (factory((global.raf = {}),global.supportPassive));
+}(this, (function (exports,supportPassive) { 'use strict';
+
+  supportPassive = supportPassive && supportPassive.hasOwnProperty('default') ? supportPassive['default'] : supportPassive;
+
+  var passive = supportPassive();
+  var defaultEventOptions = passive ? {capture: false, passive: true} : false;
 
   var on = function (element, evt, handler, options) {
     if ( options === void 0 ) options = defaultEventOptions;

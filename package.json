@@ -29,5 +29,8 @@
     "rollup": "^0.66.2",
     "rollup-plugin-buble": "^0.19.2",
     "standard-version": "^4.4.0"
+  },
+  "dependencies": {
+    "@jiubao/passive": "^0.0.1"
   }
 }

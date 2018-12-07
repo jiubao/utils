@@ -14,6 +14,9 @@ export default {
     file: cfg.cjs,
     format: 'cjs'
   }],
+  external: [
+    '@jiubao/passive'
+  ],
   plugins: [
     buble()
   ]
