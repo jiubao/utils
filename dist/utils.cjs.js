@@ -15,5 +15,12 @@ var off = function (element, evt, handler, options) {
   element.removeEventListener(evt, handler, options);
 };
 
+var inViewport = function (item) {
+  var rect = item.getBoundingClientRect();
+  return (rect.top < window.innerHeight && rect.bottom > 0) &&
+    (rect.left < window.innerWidth && rect.right > 0)
+};
+
 exports.on = on;
 exports.off = off;
+exports.inViewport = inViewport;
